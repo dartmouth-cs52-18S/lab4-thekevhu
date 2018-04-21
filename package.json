@@ -43,13 +43,8 @@
     "axios": "^0.18.0",
     "jquery": "^3.3.1",
     "lodash.debounce": "^4.0.8",
-<<<<<<< HEAD
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2",
-=======
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
->>>>>>> d4a2251bd9528e222038ea0b2dac218bbee80861
     "react-router": "^4.2.0"
   }
 }
