@@ -1,38 +1,21 @@
 import React from 'react';
 import { Switch, BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
-import Counter from '../containers/counter';
-import Controls from '../containers/controls';
+
+import NewPost from '../containers/newPost';
+import Post from '../containers/Post';
+import Posts from '../containers/Posts';
 
 import '../style.scss';
 
-const About = (props) => {
-  return <div> All there is to know about me </div>;
-};
-const Welcome = (props) => {
-  return <div>Welcome</div>;
-};
-
 const Nav = (props) => {
   return (
-    <nav>
-      <ul>
-        <li><NavLink to="/" exact>Home</NavLink></li>
-        <li><NavLink to="/about">About</NavLink></li>
-        <li><NavLink to="/test/id1">test id1</NavLink></li>
-        <li><NavLink to="/test/id2">test id2</NavLink></li>
+    <nav id="navBar">
+      <ul id="navBarItems">
+        <li><NavLink exact to="/">A Blog of Bob the Blob</NavLink></li>
+        <li><NavLink to="/posts/new">Add Post</NavLink></li>
       </ul>
-      <Counter />
-      <Controls />
     </nav>
   );
-};
-
-const Test = (props) => {
-  return <div> ID: {props.match.params.id} </div>;
-};
-
-const FallBack = (props) => {
-  return <div>URL Not Found</div>;
 };
 
 const App = (props) => {
@@ -41,10 +24,11 @@ const App = (props) => {
       <div>
         <Nav />
         <Switch>
-          <Route exact path="/" component={Welcome} />
-          <Route path="/about" component={About} />
-          <Route exact path="/test/:id" component={Test} />
-          <Route component={FallBack} />
+          <Route exact path="/" component={Posts} />
+          <Route path="/posts/new" component={NewPost} />
+          <Route exact path="/posts/:postID" component={Post} />
+
+          <Route render={() => (<div>post not found </div>)} />
         </Switch>
       </div>
     </Router>

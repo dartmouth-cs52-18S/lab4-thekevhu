@@ -1,8 +1,115 @@
+$medium-grey: #a4a4a4;
+
 body, html {
   font-family: "Roboto", sans-serif;
   height: 100%;
+  background-color: #faf7f4;
+}
+a {
+  color: $medium-grey;
 }
 
+a:link    {
+  color: $medium-grey;
+  text-decoration: none;
+  font-size: 14px;
+  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -ms-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+
+}
+a:hover    {
+  color: gray;
+  text-decoration: none;
+  font-size: 14px;
+
+}
 .active {
-  color: pink;
+  color: white;
+}
+
+#navBar{
+  height:60px;
+  width:100vw;
+  background-color: black;
+  display:flex;
+  justify-content: center;
+  font-style: 25px;
+}
+
+#navBarItems{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-style: 25px;
+  width:40vw;
+  list-style: none;
+}
+
+#node{
+  min-height:300px;
+  width:300px;
+  background-color: white;
+  margin:10px;
+  border:1px solid gray;
+}
+
+.nodeFieldContainer{
+  height:400px;
+  width:400px;
+  background-color: white;
+  margin:10px;
+  border:1px solid gray;
+  display:flex;
+  flex-direction: column;
+  padding-left: 20px;
+  padding-top:20px;
+  box-sizing: border-box;
+}
+
+.editNodeButtonContainer{
+  height:60px;
+  width:302px;
+  background-color: white;
+  margin:10px;
+  border:1px solid gray;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+  box-sizing: border-box;
+}
+#editNodeButton{
+  height:50px;
+  background-color: black;
+  color:white;
+  font-size: 14px;
+  margin:5px;
+  width:80px;
+  border-radius: 8px;
+
+}
+
+#createNodeButton{
+  background-color: black;
+  color:white;
+  font-size: 16px;
+  height: 50px;
+  width: 380px;
+  margin-left: 20px;
+  box-sizing: border-box;
+}
+
+
+
+
+.inputField{
+  width:200px;
+  height:20px;
+  margin:10px;
+  display:block;
+  outline:none;
+
 }
