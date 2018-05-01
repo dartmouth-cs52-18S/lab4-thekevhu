@@ -109,9 +109,11 @@ class Post extends Component {
       return (
         <div>
           <div className="editNodeButtonContainer">
-            <button id="editNodeButton">
-              <NavLink to="/">Home Page</NavLink>
-            </button>
+            <NavLink to="/">
+              <button id="editNodeButton">
+                Home Page
+              </button>
+            </NavLink>
             {this.renderEditButton()}
             <button id="editNodeButton" onClick={this.deletePost}>Delete</button>
 
