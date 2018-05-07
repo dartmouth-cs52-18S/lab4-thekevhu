@@ -34,11 +34,7 @@ class NewPost extends Component {
   }
 
   createPost() {
-    if (this.state.title !== '' && this.state.content !== '' && this.state.tags !== '' && this.state.cover_url !== '') {
-      this.props.createPost(Object.assign({}, this.state), this.props.history);
-    } else {
-      alert('please fill out all fields');
-    }
+    this.props.createPost(Object.assign({}, this.state), this.props.history);
   }
 
   render() {

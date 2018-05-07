@@ -16,6 +16,8 @@ class Posts extends Component {
 
   render() {
     if (this.props.posts) {
+      console.log(this.props.posts);
+
       return (
         <div>
           {this.props.posts.map((post) => {
@@ -24,7 +26,7 @@ class Posts extends Component {
                 <div id="node">
                   <div>{post.title}</div>
                   <img alt={`${post.id}coverImage`} src={post.cover_url} />
-                  <div>{post.tags}</div>
+                  <div>{post.tags.join(' ')}</div>
                 </div>
               </NavLink>
             );
