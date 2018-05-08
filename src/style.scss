@@ -105,14 +105,14 @@ a:hover    {
   background-color: black;
   color:white;
   font-size: 16px;
-  height: 50px;
-  width: 250px;
-  margin-left: 20px;
+  height: 30px;
+  width: 200px;
   box-sizing: border-box;
 }
 
-
-
+#coverImage{
+  max-width:300px;
+}
 
 
 .inputField{
@@ -122,4 +122,20 @@ a:hover    {
   display:block;
   outline:none;
 
+}
+
+#commentsContainer{
+  width: 300px;
+  background-color:white;
+  border: 1px solid gray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  padding-bottom: 20px;
+}
+
+#comment{
+  border-bottom: 1px solid gray;
+  width:280px;
 }

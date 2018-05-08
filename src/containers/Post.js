@@ -5,6 +5,7 @@ import { withRouter, NavLink } from 'react-router-dom';
 
 import { fetchPost, updatePost, deletePost } from '../actions';
 
+
 class Post extends Component {
   constructor(props) {
     super(props);
@@ -16,6 +17,7 @@ class Post extends Component {
       isEditing: false,
       newComment: '',
       commentsArray: [],
+      author: props.post.author,
     };
 
     this.onInputChange = this.onInputChange.bind(this);
@@ -39,6 +41,7 @@ class Post extends Component {
       cover_url: props.post.cover_url,
       commentsArray: props.post.commentsArray,
       isEditing: false,
+      author: props.post.author,
     });
   }
 
@@ -55,6 +58,8 @@ class Post extends Component {
       this.setState({ cover_url: event.target.value });
     } else if (id === 'newComment') {
       this.setState({ newComment: event.target.value });
+    } else if (id === 'author') {
+      this.setState({ author: event.target.value });
     }
   }
 
@@ -67,6 +72,7 @@ class Post extends Component {
       title: this.state.title,
       content: this.state.content,
       cover_url: this.state.cover_url,
+      author: this.state.author,
       tags: this.state.tags.toString().split(' '),
     };
 
@@ -109,6 +115,9 @@ class Post extends Component {
             <label htmlFor="title">Title
               <input id="title" className="inputField" onChange={this.onInputChange} value={this.state.title} />
             </label>
+            <label htmlFor="author">Author
+              <input id="author" className="inputField" onChange={this.onInputChange} value={this.state.author} />
+            </label>
             <label htmlFor="content">Content
               <input id="content" className="inputField" onChange={this.onInputChange} value={this.state.content} />
             </label>
@@ -129,8 +138,9 @@ class Post extends Component {
       }
       return (
         <div id="node">
-          <div>{this.props.post.title}</div>
-          <img alt={`${this.props.post.id}coverImage`} src={this.props.post.cover_url} />
+          <h3>{this.props.post.title}</h3>
+          <h4>{this.props.post.author}</h4>
+          <img alt={`${this.props.post.id}coverImage`} id="coverImage" src={this.props.post.cover_url} />
           <div dangerouslySetInnerHTML={{ __html: marked(this.props.post.content || '') }} />
           <div>{tagView}</div>
         </div>
@@ -155,12 +165,17 @@ class Post extends Component {
 
           </div>
           {this.renderEditFields()}
-          {this.state.commentsArray.map((comment) => { return <p> {comment} </p>; })}
 
-          <label htmlFor="newComment">
-            <input id="newComment" className="inputField" onChange={this.onInputChange} value={this.state.newComment} />
-          </label>
-          <button id="submitComment" onClick={this.submitComment}> Submit Comment </button>
+          <div id="commentsContainer">
+            {/* eslint-disable */}
+            {this.state.commentsArray.map((comment, index) => { return <p key={index} id="comment"> {comment} </p>; })}
+
+            {/* eslint-enable */}
+            <label htmlFor="newComment">
+              <input id="newComment" className="inputField" onChange={this.onInputChange} value={this.state.newComment} />
+            </label>
+            <button id="submitComment" onClick={this.submitComment}> Submit Comment </button>
+          </div>
         </div>
       );
     } else {
