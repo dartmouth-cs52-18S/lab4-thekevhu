@@ -155,7 +155,7 @@ class Post extends Component {
 
           </div>
           {this.renderEditFields()}
-          {this.state.commentsArray.map((comment) => { return <p> {comment} </p>; })};
+          {this.state.commentsArray.map((comment) => { return <p> {comment} </p>; })}
 
           <label htmlFor="newComment">
             <input id="newComment" className="inputField" onChange={this.onInputChange} value={this.state.newComment} />
