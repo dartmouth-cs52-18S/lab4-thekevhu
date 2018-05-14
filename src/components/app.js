@@ -1,34 +1,26 @@
 import React from 'react';
-import { Switch, BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
-
+import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
 import NewPost from '../containers/newPost';
 import Post from '../containers/Post';
 import Posts from '../containers/Posts';
+import NavBar from '../containers/navBar';
+import SignUpPage from './SignUpPage';
+import requireAuth from '../containers/requireAuth';
 
 import '../style.scss';
 
-const Nav = (props) => {
-  return (
-    <nav id="navBar">
-      <ul id="navBarItems">
-        <li><NavLink exact to="/">A Blog of Bob the Blob</NavLink></li>
-        <li><NavLink to="/posts/new">Add Post</NavLink></li>
-      </ul>
-    </nav>
-  );
-};
 
 const App = (props) => {
   return (
     <Router>
       <div>
-        <Nav />
+        <NavBar />
         <Switch>
           <Route exact path="/" component={Posts} />
-          <Route path="/posts/new" component={NewPost} />
+          <Route path="/posts/new" component={requireAuth(NewPost)} />
           <Route exact path="/posts/:postID" component={Post} />
-
-          <Route render={() => (<div>post not found </div>)} />
+          <Route path="/Login" component={SignUpPage} />
+          <Route render={() => (<div>page not found </div>)} />
         </Switch>
       </div>
     </Router>
