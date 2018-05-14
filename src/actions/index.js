@@ -11,7 +11,9 @@ export const ActionTypes = {
   AUTH_ERROR: 'AUTH_ERROR',
 };
 
-const ROOT_URL = 'http://localhost:9090/api';
+
+// const ROOT_URL = 'http://localhost:9090/api';
+const ROOT_URL = 'https://thekevhu-lab5pt2.herokuapp.com/api';
 
 // const ROOT_URL = 'https://cs52-blog.herokuapp.com/api';
 // const ROOT_URL = 'https://thekevhu-lab5.herokuapp.com/api';
@@ -35,6 +37,7 @@ export function fetchPost(id) {
   return (dispatch) => {
     axios.get(`${ROOT_URL}/posts/${id}${API_KEY}/`)
       .then((response) => {
+        console.log('here', response);
         dispatch({ type: ActionTypes.FETCH_POST, payload: response.data });
       }).catch((error) => {
         console.log('Unable to fetch post');
@@ -110,7 +113,7 @@ export function signinUser({ email, password }, history) {
       localStorage.setItem('token', response.data.token);
       history.push('/');
     }).catch((error) => {
-      dispatch(authError(`Sign Up Failed: ${error.response.data}`));
+      dispatch(authError(`Sign In Failed: ${error.response}`));
     });
   };
 }
@@ -125,13 +128,14 @@ export function signupUser({ email, password, author }, history) {
   //  localStorage.setItem('token', response.data.token);
   // on error should dispatch(authError(`Sign Up Failed: ${error.response.data}`));
   return (dispatch) => {
+    console.log({ email, password, author });
     axios.post(`${ROOT_URL}/signup`, { email, password, author }).then((response) => {
       dispatch({ type: ActionTypes.AUTH_USER });
       localStorage.setItem('token', response.data.token);
       console.log(response.data.token);
       history.push('/');
     }).catch((error) => {
-      dispatch(authError(`Sign Up Failed: ${error.response.data}`));
+      dispatch(authError(`Sign Up Failed: ${error.response}`));
     });
   };
 }

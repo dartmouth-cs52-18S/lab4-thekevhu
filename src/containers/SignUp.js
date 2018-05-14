@@ -10,7 +10,7 @@ class SignUp extends Component {
     this.state = {
       email: '',
       password: '',
-      username: '',
+      author: '',
     };
 
     this.signUp = this.signUp.bind(this);
@@ -22,8 +22,8 @@ class SignUp extends Component {
       this.setState({ email: event.target.value });
     } else if (id === 'password') {
       this.setState({ password: event.target.value });
-    } else if (id === 'username') {
-      this.setState({ username: event.target.value });
+    } else if (id === 'author') {
+      this.setState({ author: event.target.value });
     }
   }
 
@@ -36,8 +36,8 @@ class SignUp extends Component {
     return (
       <div >
         <form id="inputContainer" >
-          <label htmlFor="username">Username
-            <input id="username" className="inputField" onChange={this.onInputChange} value={this.state.username} />
+          <label htmlFor="authoer">Username
+            <input id="author" className="inputField" onChange={this.onInputChange} value={this.state.author} />
           </label>
           <label htmlFor="email">Email
             <input id="email" className="inputField" onChange={this.onInputChange} value={this.state.email} />

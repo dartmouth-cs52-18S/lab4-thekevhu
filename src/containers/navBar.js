@@ -17,9 +17,9 @@ class NavBar extends Component {
 
   renderSignInOutButton() {
     if (this.props.auth) {
-      return <button onClick={this.onSignOutClick}>Sign Out</button>;
+      return <button id="signUpOutButton" onClick={this.onSignOutClick}>Sign Out</button>;
     } else {
-      return <button > <NavLink to="/Login" > Sign In </NavLink></button>;
+      return <button id="signUpOutButton"> <NavLink to="/Login" > Sign In </NavLink></button>;
     }
   }
   render() {

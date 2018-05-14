@@ -11,7 +11,6 @@ class NewPost extends Component {
 
     this.state = {
       title: '',
-      author: '',
       content: '',
       tags: '',
       cover_url: '',
@@ -31,8 +30,6 @@ class NewPost extends Component {
       this.setState({ tags: event.target.value });
     } else if (id === 'cover_url') {
       this.setState({ cover_url: event.target.value });
-    } else if (id === 'author') {
-      this.setState({ author: event.target.value });
     }
   }
 
@@ -47,9 +44,7 @@ class NewPost extends Component {
           <label htmlFor="title">Title
             <input id="title" className="inputField" onChange={this.onInputChange} value={this.state.title} />
           </label>
-          <label htmlFor="author">Author
-            <input id="author" className="inputField" onChange={this.onInputChange} value={this.state.author} />
-          </label>
+
           <label htmlFor="content">Content
             <input id="content" className="inputField" onChange={this.onInputChange} value={this.state.content} />
           </label>

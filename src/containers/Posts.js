@@ -25,8 +25,6 @@ class Posts extends Component {
               <NavLink id="nodeContainer" key={post.id} to={`/posts/${post.id}`}>
                 <div id="node">
                   <div>{post.title}</div>
-                  <div>{post.author}</div>
-
                   <img alt={`${post.id}coverImage`} id="coverImage" src={post.cover_url} />
                   <div>{post.tags.join(' ')}</div>
 
@@ -41,6 +39,7 @@ class Posts extends Component {
     }
   }
 }
+
 
 const mapStateToProps = state => (
   {
