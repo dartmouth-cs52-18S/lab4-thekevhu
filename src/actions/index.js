@@ -113,6 +113,9 @@ export function signinUser({ email, password }, history) {
       localStorage.setItem('token', response.data.token);
       history.push('/');
     }).catch((error) => {
+      console.log(error);
+
+      dispatch({ type: ActionTypes.AUTH_USER, payload: error });
       dispatch(authError(`Sign In Failed: ${error.response}`));
     });
   };
@@ -135,6 +138,7 @@ export function signupUser({ email, password, author }, history) {
       console.log(response.data.token);
       history.push('/');
     }).catch((error) => {
+      dispatch({ type: ActionTypes.AUTH_USER, payload: error });
       dispatch(authError(`Sign Up Failed: ${error.response}`));
     });
   };
