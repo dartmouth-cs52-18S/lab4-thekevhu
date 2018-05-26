@@ -58,7 +58,6 @@ a:hover    {
 }
 
 .nodeFieldContainer{
-  height:400px;
   width:400px;
   background-color: white;
   margin:10px;
@@ -145,4 +144,9 @@ a:hover    {
   color:white;
   background-color: black;
   font-family: futura;
+}
+
+#preview{
+  width:300px;
+  height:auto;
 }
